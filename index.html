@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsHub - Stay Informed</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-container">
+                <div class="logo-container" onclick="reload()">
+                    <i class="fas fa-newspaper logo-icon"></i>
+                    <h1 class="logo-text">NewsHub</h1>
+                </div>
+                
+                <div class="search-container">
+                    <div class="search-bar">
+                        <input type="text" id="search-text" class="search-input" placeholder="Search for news...">
+                        <button id="search-button" class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="theme-toggle">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </div>
+            </div>
+            
+            <nav class="category-nav">
+                <ul class="category-list">
+                    <li class="category-item active" id="general" onclick="onNavItemClick('general')">
+                        <i class="fas fa-globe"></i> General
+                    </li>
+                    <li class="category-item" id="business" onclick="onNavItemClick('business')">
+                        <i class="fas fa-briefcase"></i> Business
+                    </li>
+                    <li class="category-item" id="technology" onclick="onNavItemClick('technology')">
+                        <i class="fas fa-microchip"></i> Tech
+                    </li>
+                    <li class="category-item" id="science" onclick="onNavItemClick('science')">
+                        <i class="fas fa-flask"></i> Science
+                    </li>
+                    <li class="category-item" id="health" onclick="onNavItemClick('health')">
+                        <i class="fas fa-heartbeat"></i> Health
+                    </li>
+                    <li class="category-item" id="sports" onclick="onNavItemClick('sports')">
+                        <i class="fas fa-running"></i> Sports
+                    </li>
+                    <li class="category-item" id="entertainment" onclick="onNavItemClick('entertainment')">
+                        <i class="fas fa-film"></i> Entertainment
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <div class="loading-indicator" id="loading">
+                <div class="spinner"></div>
+                <p>Loading news...</p>
+            </div>
+            
+            <div class="news-container" id="cards-container">
+                <!-- News cards will be inserted here by JavaScript -->
+            </div>
+            
+            <div class="empty-state" id="empty-state">
+                <i class="fas fa-newspaper"></i>
+                <h3>No news found</h3>
+                <p>Try a different search term or category</p>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <p>© 2023 NewsHub - Your trusted news source</p>
+            <p>Powered by NewsAPI</p>
+        </footer>
+    </div>
+
+    <!-- News Card Template -->
+    <template id="template-news-card">
+        <div class="news-card">
+            <div class="card-image-container">
+                <img src="" alt="News image" class="card-image" id="news-img">
+                <div class="card-badge" id="news-category">General</div>
+            </div>
+            <div class="card-content">
+                <h3 class="card-title" id="news-title">News Title</h3>
+                <div class="card-meta">
+                    <span class="source" id="news-source">Source</span>
+                    <span class="date" id="news-date">Date</span>
+                </div>
+                <p class="card-description" id="news-desc">News description...</p>
+                <div class="card-actions">
+                    <button class="save-btn">
+                        <i class="far fa-bookmark"></i> Save
+                    </button>
+                    <button class="share-btn">
+                        <i class="fas fa-share-alt"></i> Share
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>
